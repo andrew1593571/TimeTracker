@@ -36,15 +36,15 @@
             secondsValue = 0
             If minutesValue = 59 Then
                 minutesValue = 0
-                hoursValue = ++1
+                hoursValue = hoursValue + 1
             Else
-                minutesValue = ++1
+                minutesValue = minutesValue + 1
             End If
         Else
-            secondsValue = ++1
+            secondsValue = secondsValue + 1
         End If
 
-        RaiseEvent UpdateStopwatch($"{hoursValue}:{minutesValue}:{secondsValue}")
+        RaiseEvent UpdateStopwatch($"{Format(hoursValue, "00")}:{Format(minutesValue, "00")}:{Format(secondsValue, "00")}")
     End Sub
 
 End Class
